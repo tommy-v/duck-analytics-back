@@ -1,0 +1,14 @@
+import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
+import { Document } from 'mongoose';
+import { FoodType } from '../models/food-type.enum';
+
+@Schema()
+export class Food extends Document {
+  @Prop()
+  title: string;
+  
+  @Prop()
+  type: FoodType;
+}
+
+export const FoodSchema = SchemaFactory.createForClass(Food);
