@@ -9,6 +9,10 @@ export class FoodService {
 
   async create(dataFood: any): Promise<Food> {
     const newDataFood = new this.foodModel(dataFood);
-    return newDataFood.save();
+    return await newDataFood.save();
+  }
+
+  async getAllFoods(): Promise<Food[]> {
+    return await this.foodModel.find({});
   }
 }

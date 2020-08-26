@@ -1,4 +1,4 @@
-import { Controller, Post, Body } from '@nestjs/common';
+import { Controller, Post, Body, Get } from '@nestjs/common';
 import { FoodService } from './food.service';
 import { Food } from './schemas/food.schema';
 import { CreateFoodDto } from './dto/create-food.dto';
@@ -9,6 +9,11 @@ export class FoodController {
 
   @Post('createFood')
   async createFoodDto(@Body() createFoodDto: CreateFoodDto): Promise<Food> {
-    return await this.foodService.create(null);
+    return await this.foodService.create(createFoodDto);
   } 
+
+  @Get('all')
+  async getAllFoods(): Promise<Food[]> {
+    return await this.foodService.getAllFoods();
+  }
 }

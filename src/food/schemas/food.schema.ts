@@ -4,7 +4,7 @@ import { FoodType } from '../models/food-type.enum';
 
 @Schema()
 export class Food extends Document {
-  @Prop()
+  @Prop() // { unique: true }
   title: string;
   
   @Prop()
