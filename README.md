@@ -26,4 +26,5 @@ $ npm run test
 
 ## Docs
 
-[API doc](./insomnia/insomnia-api-doc.json)
+* [API doc](./insomnia/insomnia-api-doc.json)
+* [General doc](./docs/general.md)
