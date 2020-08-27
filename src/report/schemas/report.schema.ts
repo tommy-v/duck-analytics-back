@@ -9,14 +9,13 @@ export class Report extends Document {
   location: Location;
 
   @Prop()
-  food: Food;
-
-  @Prop()
   foodQuantity: number;
 
   @Prop()
+  food: Food;
+
+  @Prop()
   duckCount: number;
-  
 }
 
 export const ReportSchema = SchemaFactory.createForClass(Report);

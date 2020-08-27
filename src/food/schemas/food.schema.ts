@@ -8,7 +8,7 @@ export class Food extends Document {
   title: string;
   
   @Prop()
-  type: FoodType;
+  foodType: FoodType; // Issue with "type"
 }
 
 export const FoodSchema = SchemaFactory.createForClass(Food);

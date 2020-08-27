@@ -12,7 +12,6 @@ export class ReportController {
   async createReportDto(@Body() createReportDto: CreateReportDto): Promise<Report> {
     return await this.reportService.create({
       ...createReportDto,
-      food: Types.ObjectId(createReportDto.food)
     });
   } 
 
