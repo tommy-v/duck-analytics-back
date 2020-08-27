@@ -1,0 +1,41 @@
+version: "3"
+networks:
+    web:
+      external: true
+
+services:
+  mongo:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${DB_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${DB_PASSWORD}
+    expose:
+      - 27017
+    volumes:
+      - /data/db:/duck-data/db
+    labels:
+      - traefik.enable=false
+    networks:
+      - web
+  node:
+    build: .
+    restart: always
+    env_file:
+        - ./.env
+    environment:
+        HTTP_PORT: ${HTTP_PORT}
+        DB_HOST: ${DB_HOST_DOCKER}
+    expose:
+        - ${HTTP_PORT}
+    depends_on:
+        - mongo
+    volumes:
+        - /usr/app/node_modules
+    labels:
+        - traefik.enable=true
+        - traefik.docker.network=web
+        - traefik.port=${HTTP_PORT}
+        - traefik.frontend.rule=Host:${HOST}
+    networks:
+        - web

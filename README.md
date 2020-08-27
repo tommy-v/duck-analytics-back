@@ -1,4 +1,4 @@
-# Duck Analytis Back <!-- omit in toc -->
+# Duck Analytics 🦆 Back <!-- omit in toc -->
 
 - [Description](#description)
 - [Installation](#installation)
@@ -13,6 +13,8 @@ Duck Analytics main API built with NestJS
 
 ```sh
 $ npm i
+# Create and fill .env with .env.example variables
+$ touch .env & vim .env
 $ npm start
 ```
 
