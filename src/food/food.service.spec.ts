@@ -19,7 +19,8 @@ describe('FoodService', () => {
 
     const module: TestingModule = await Test.createTestingModule({
       imports: [
-        MongooseModule.forRoot(`${uri}`), MongooseModule.forFeature([{ name: Food.name, schema: FoodSchema }])
+        MongooseModule.forRoot(`${uri}`),
+        MongooseModule.forFeature([{ name: Food.name, schema: FoodSchema }])
       ],
       providers: [FoodService],
     }).compile();

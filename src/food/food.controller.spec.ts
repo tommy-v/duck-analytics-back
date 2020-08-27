@@ -21,7 +21,8 @@ describe('FoodController', () => {
 
     const app: TestingModule = await Test.createTestingModule({
       imports: [
-        MongooseModule.forRoot(`${uri}`), MongooseModule.forFeature([{ name: Food.name, schema: FoodSchema }])
+        MongooseModule.forRoot(`${uri}`),
+        MongooseModule.forFeature([{ name: Food.name, schema: FoodSchema }])
       ],
       controllers: [FoodController],
       providers: [FoodService],

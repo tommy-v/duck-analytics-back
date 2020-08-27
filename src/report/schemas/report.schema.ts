@@ -1,6 +1,6 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
-import { Food } from 'src/food/schemas/food.schema';
+import { Food } from '../../food/schemas/food.schema';
 import { Location } from '../models/report.models';
 import * as mongoose from 'mongoose';
 
