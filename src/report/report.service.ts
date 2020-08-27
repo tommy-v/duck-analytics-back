@@ -13,6 +13,6 @@ export class ReportService {
   }
 
   async getAllReports(): Promise<Report[]> {
-    return await this.reportModel.find({});
+    return await this.reportModel.find().populate('food');
   }
 }
