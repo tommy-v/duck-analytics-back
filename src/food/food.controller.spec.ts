@@ -10,7 +10,6 @@ import { FoodType } from './models/food-type.enum';
 
 describe('FoodController', () => {
   const mongod = new MongoMemoryServer();
-  let app: TestingModule;
   let foodController: FoodController;
   const mockFoodModel: CreateFoodDto = {
     title: 'Belgian fries',
@@ -20,9 +19,10 @@ describe('FoodController', () => {
   beforeEach(async () => {
     const uri = await mongod.getUri();
 
-    app = await Test.createTestingModule({
+    const app: TestingModule = await Test.createTestingModule({
       imports: [
-      MongooseModule.forRoot(`${uri}`), MongooseModule.forFeature([{ name: Food.name, schema: FoodSchema }])],
+        MongooseModule.forRoot(`${uri}`), MongooseModule.forFeature([{ name: Food.name, schema: FoodSchema }])
+      ],
       controllers: [FoodController],
       providers: [FoodService],
     }).compile();
@@ -39,8 +39,7 @@ describe('FoodController', () => {
     });
   });
 
-  afterAll(async (done) => {
+  afterAll(async () => {
     await mongod.stop();
-    done();
-  })
+  });
 });
