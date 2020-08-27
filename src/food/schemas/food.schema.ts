@@ -4,10 +4,10 @@ import { FoodType } from '../models/food-type.enum';
 
 @Schema()
 export class Food extends Document {
-  @Prop() // { unique: true }
+  @Prop({ maxlength: 50 }) // { unique: true }
   title: string;
   
-  @Prop()
+  @Prop({ maxlength: 25 })
   foodType: FoodType; // Issue with "type"
 }
 

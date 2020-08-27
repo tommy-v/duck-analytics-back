@@ -8,13 +8,13 @@ export class Report extends Document {
   @Prop()
   location: Location;
 
-  @Prop()
+  @Prop({ min: 0, max: 1000 })
   foodQuantity: number;
 
   @Prop()
   food: Food;
 
-  @Prop()
+  @Prop({ min: 0, max: 1000 })
   duckCount: number;
 }
 

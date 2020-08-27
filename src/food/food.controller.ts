@@ -7,7 +7,7 @@ import { CreateFoodDto } from './dto/create-food.dto';
 export class FoodController {
   constructor(private readonly foodService: FoodService) {}
 
-  @Post('createFood') // TODO create
+  @Post('create') // TODO create
   async createFoodDto(@Body() createFoodDto: CreateFoodDto): Promise<Food> {
     return await this.foodService.create(createFoodDto);
   } 
