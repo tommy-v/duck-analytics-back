@@ -9,6 +9,8 @@ export class ReportService {
 
   async create(dataReport: any): Promise<Report> {
     const newDataReport = new this.reportModel(dataReport);
+    newDataReport.creationDate = new Date().toISOString();
+
     return await newDataReport.save();
   }
 

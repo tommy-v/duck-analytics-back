@@ -7,6 +7,9 @@ import * as mongoose from 'mongoose';
 @Schema()
 export class Report extends Document {
   @Prop()
+  creationDate: Date;
+
+  @Prop()
   location: Location;
 
   @Prop({ min: 0, max: 1000 })
